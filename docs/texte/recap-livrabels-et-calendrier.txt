@@ -1,0 +1,114 @@
+                                                                                       Architecture de projet Big Data
+                                                                          M2 IABD, ESGI Lyon. Code matière 05CW07239
+
+
+
+
+Récap des livrables et calendrier
+
+Calendrier
+Les vendredis sont en visio. Les sorties d'information tombent à l'heure indiquée, pour tous les trinômes en
+même temps.
+
+ Date            Créneau       Mode        Contenu                                                À rendre
+
+ Jeu 5/11        8h à 9h30     Présentiel Lancement, dossier de départ (R0), trinômes et
+                                          rôles
+
+ Jeu 5/11        9h45 à        Présentiel Copie 1, puis premières hypothèses
+                 11h15
+
+ Jeu 5/11        11h30 à 13h   Présentiel Sortie R1 à 11h30, données et propriétaires
+
+ Jeu 5/11        14h à 15h30   Présentiel Sortie R2 à 14h, inventaire des données                 Rendu 1 à 15h30
+
+ Ven 6/11        11h30 à 13h   Visio       Sortie R3 à 11h30, le droit avant l'architecture       Rendu 2 à 13h
+
+ 6/11 au         Autonomie                 Finir L3, reprendre L1, L2, registre                   Rendu 3, dim 29/11 à
+ 29/11                                                                                            23h59
+
+ Lun 30/11       11h30 à 13h   Présentiel Copie 2, retour sur les AIPD
+
+ Lun 30/11       14h à 19h     Présentiel Sorties R4 à 14h et R5 à 18h, architecture et           Rendu 4 à 19h
+                                          chiffrage
+
+ Jeu 3/12        9h45 à 13h    Présentiel Sortie R6 à 9h45, équipe, gouvernance, budget,          Rendu 5 à 12h15, avant la
+                                          puis Copie 3                                            copie
+
+ Ven 4/12        8h à 9h30     Visio       Exploitation et déploiement, finalisation              Rendu 6 à 9h30
+
+ Ven 4/12        9h45 à 13h    Visio       Soutenances, 24 minutes par trinôme, arbitrages
+                                           R7
+
+
+
+Les livrables
+ Code Pièce                       Ce qu'elle contient                                                Taille
+
+ L1        Note de cadrage        Décision visée, indicateur à 12 mois, périmètre, premier           1 page
+                                  livrable utile
+
+ L2        Inventaire des         Au moins 8 sources, colonnes imposées, volumétrie calculée         1 tableau
+           données
+
+ L3        AIPD courte            Deux traitements, trois risques cotés, mesures, contrat            2 pages
+                                  fournisseur
+
+ L4        Architecture et        Schéma, trois fiches de décision, chiffrage annuel et à trois      4 pages
+           chiffrage              ans
+
+
+
+
+                                                         Page 1 sur 2
+ Code Pièce                       Ce qu'elle contient                                              Taille
+
+ L5      Organisation et budget   Équipe, RACI, budget sur 18 mois, ce qui a été retiré, feuille   2 pages
+                                  de route
+
+         Registre des             Toutes les hypothèses, ouvertes et fermées                       1 tableau
+         hypothèses
+
+         Journal de bord          Une entrée par sortie d'information                              une demi-page par
+                                                                                                   entrée
+
+Le détail de chaque consigne se trouve dans la séance où le livrable est lancé.
+
+
+Les rendus sur Teams
+Chaque rendu est un devoir Teams avec une heure limite. Tout est corrigé ensemble à la fin, mais un rendu
+manquant ou en retard coûte 0,5 point sur la moyenne finale à chaque membre du trinôme, comme un jalon
+raté dans un vrai projet. À la correction, on vérifie aussi qu'aucune entrée ne s'appuie sur une information qui
+n'était pas encore sortie à sa date.
+
+ Rendu et heure limite                     Quoi
+
+ 1. Jeudi 5/11, 15h30                      Photo ou PDF de L1, L2, registre et entrées R0 à R2
+
+ 2. Vendredi 6/11, 13h                     Entrée R3 du journal, réponse au patient, registre à jour
+
+ 3. Dimanche 29/11, 23h59                  L1, L2, L3, registre à jour
+
+ 4. Lundi 30/11, 19h                       L4, entrées R4 et R5, registre à jour
+
+ 5. Jeudi 3/12, 12h15, avant la copie      L5, entrée R6, registre à jour
+
+ 6. Vendredi 4/12, 9h30                    Dossier final (registre complet et journal en annexe) et support d'oral
+
+
+
+Le dossier final
+Deux parties.
+La proposition, douze pages au plus : une page de synthèse pour la directrice générale (décision visée, coût,
+délai, risques), puis L1 à L5 dans leur dernière version, cohérents entre eux.
+Le chemin, cinq pages au plus : une frise qui montre, sortie après sortie, les pistes ouvertes et fermées et les
+décisions prises ; le registre complet ; une page sur les trois hypothèses qui vous ont coûté le plus cher et ce
+que vous referiez autrement.
+En annexe, les entrées du journal telles que déposées. Le chemin raconté doit coller à vos rendus datés.
+Support d'oral : dix diapositives au plus, dont deux sur le chemin.
+
+
+
+
+                                                         Page 2 sur 2
+

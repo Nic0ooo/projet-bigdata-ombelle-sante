@@ -1,0 +1,243 @@
+                                                                               Architecture de projet Big Data
+                                                                  M2 IABD, ESGI Lyon. Code matière 05CW07239
+
+
+
+
+Séance 5 : Équipe, gouvernance et budget
+
+  Jeudi 3 décembre, 9h45 à 13h, présentiel. Sortie d'information R6 à 9h45. Rendu 5 puis Copie 3 à 12h15.
+
+
+  Sommaire
+     La règle
+     L'histoire de Nathalie
+        Carte blanche
+        Douze démonstrations réussies
+        Ce qui coinçait
+        La remise à plat
+        Qui fait quoi
+     Les métiers d'une équipe data
+     En résumé
+     Exercice flash, 5 minutes
+     Les bases à garder sous la main
+        Chiffrer une équipe
+        Construire un budget sur 18 mois
+        La gouvernance des données
+        Le RACI
+        La feuille de route
+     Déroulé
+     Livrable L5 : organisation et budget
+     À la fin de la séance
+
+
+
+La règle
+Une équipe data se dimensionne sur le run, pas sur le build.
+Une plateforme de données ne se construit pas une fois pour toutes. Les sources changent, les flux tombent,
+les métiers demandent de nouveaux indicateurs, les modèles vieillissent. Si personne n'est prévu pour la faire
+vivre, elle se dégrade en quelques mois.
+
+
+L'histoire de Nathalie
+
+Carte blanche
+Nathalie dirige l'innovation dans une grande enseigne de distribution. La direction lui donne un budget et une
+consigne : « Faites-nous de l'IA. » Elle recrute quatre data scientists brillants et ouvre un datalab.
+
+
+
+
+                                                   Page 1 sur 5
+Douze démonstrations réussies
+En deux ans, le datalab produit douze prototypes : prévision des ventes, détection des ruptures,
+recommandations en magasin. Chacun est présenté en comité. Chaque fois, applaudissements.
+Pourtant, aucun n'est utilisé.
+
+Ce qui coinçait
+Quand on regarde de près, trois choses manquaient.
+    Personne pour faire circuler la donnée. Les data scientists travaillaient sur des exports copiés à la main
+    sur leurs ordinateurs. Passer en production demandait des flux fiables, et il n'y avait aucun data engineer
+    pour les construire.
+    Personne côté métier pour porter l'usage. Aucun responsable d'un rayon ou d'une région n'avait
+    demandé ces prototypes, ni ne s'engageait à s'en servir.
+    Aucun chemin vers la production. Rien ne disait qui reprendrait un prototype réussi, avec quel budget.
+Au bout de deux ans, trois des quatre data scientists sont partis. Le problème n'était pas leur compétence,
+c'était l'organisation autour d'eux.
+
+La remise à plat
+Nathalie reprend tout avec quatre décisions.
+ 1. D'abord un data engineer. Sans données fiables qui arrivent toutes seules, un data scientist passe son
+    temps à nettoyer des fichiers.
+ 2. Un owner et un steward par domaine. Pour les ventes, le directeur commercial devient data owner : il
+    décide de l'usage des données et il en répond. Une analyste de son équipe devient data steward : elle tient
+    les définitions, surveille la qualité, documente. L'un sans l'autre ne marche pas : des owners seuls restent
+    sur le papier, des stewards seuls n'ont pas d'autorité.
+ 3. Une règle d'entrée au datalab. Un prototype ne démarre que s'il a un métier qui l'attend et une équipe
+    prête à le reprendre. Sinon, on ne le lance pas. Piloter un datalab, c'est autant décider ce qu'on arrête que
+    ce qu'on commence.
+ 4. Un noyau interne, des renforts externes. Recruter prend des mois et les profils sont rares. Nathalie
+    garde en interne ceux qui portent la connaissance, et fait appel à des prestataires pour construire plus
+    vite. Tout sous-traiter, c'est voir la connaissance partir avec le dernier consultant.
+
+Qui fait quoi
+Pour éviter de retomber dans le flou, Nathalie écrit un RACI pour chaque activité : qui réalise (R), qui en
+répond et décide (A), qui est consulté (C), qui est informé (I). Une seule règle stricte : un seul A par ligne. Si
+deux personnes décident, personne ne décide.
+Voici celui qu'elle affiche pour le domaine des ventes. Il se lit ligne par ligne : pour chaque activité, qui fait,
+qui décide, qui donne son avis, qui est tenu au courant.
+
+ Activité                             Data          Analyste, data     Data          Directeur commercial,     DSI
+                                      engineer      steward            scientist     data owner
+
+ Charger chaque nuit les ventes des   R             I                  I             I                         A
+ magasins
+
+
+
+
+                                                        Page 2 sur 5
+ Activité                                Data           Analyste, data       Data            Directeur commercial,     DSI
+                                         engineer       steward              scientist       data owner
+
+ Définir ce qu'est une « rupture de      I              R                    C               A
+ stock »
+
+ Valider la prévision des ventes avant   I              C                    R               A
+ de la diffuser aux régions
+
+ Ouvrir l'accès aux données de ventes    R              R                                    A                         C
+ à un nouveau service
+
+Deux choses à remarquer. Le directeur commercial est A sur presque tout ce qui touche au sens et à l'usage
+des données, pas sur la technique : c'est le rôle d'un data owner. Et une case vide est une information : cette
+personne n'a rien à faire sur cette activité, et c'est voulu.
+
+
+Les métiers d'une équipe data
+ Rôle                   Ce qu'il fait
+
+ Data engineer          Construit et maintient les flux, le stockage, les traitements. Sans lui, rien ne tourne.
+
+ Data analyst           Transforme les données en indicateurs et en tableaux de bord pour les métiers.
+
+ Data scientist         Construit des modèles prédictifs, les évalue, les explique.
+
+ MLOps                  Met les modèles en production, les surveille, gère leurs versions.
+
+ Product owner data     Porte la voix des métiers, priorise, décide de ce qui sort en premier.
+
+ Data steward           Veille à la qualité et à la documentation d'un domaine de données, au plus près des métiers.
+
+ DPO                    Veille à la conformité des traitements et conseille le responsable de traitement.
+
+
+
+En résumé
+    On dimensionne d'abord l'équipe qui fera tourner la plateforme, pas celle qui la construit.
+    Le data engineer vient avant le data scientist.
+    Chaque domaine de données a un owner qui décide et un steward qui le fait vivre.
+    Un datalab n'a de sens qu'avec un chemin vers la production.
+    On garde la connaissance en interne, on achète de la vitesse à l'extérieur.
+    Dans un RACI, un seul A par ligne.
+
+
+Exercice flash, 5 minutes
+Un indicateur publié dans un tableau de bord de direction se révèle faux. Remplissez le RACI de sa
+correction pour quatre rôles : data engineer, data analyst, data owner du domaine, directeur général.
+
+
+Les bases à garder sous la main
+Cette fiche ne se récite pas. Elle sert pendant l'atelier, pour construire L5 sans aller chercher ailleurs.
+
+
+
+
+                                                            Page 3 sur 5
+Chiffrer une équipe
+     Un ETP, un équivalent temps plein, c'est une personne à plein temps sur un an. Deux personnes à mi-
+     temps font un ETP.
+     Le coût chargé d'un salarié, c'est son salaire brut plus les cotisations patronales : comptez environ 1,45
+     fois le brut.
+     Un an de travail, c'est environ 210 à 220 jours effectivement travaillés, une fois retirés les week-ends,
+     les congés et les jours fériés.
+     Un prestataire se paie à la journée : tarif journalier × nombre de jours. Sur 18 mois à temps plein,
+     comptez environ 330 jours.
+     Un recrutement prend souvent trois à six mois. Pendant ce temps, le poste ne coûte rien, mais il ne
+     produit rien non plus.
+
+Construire un budget sur 18 mois
+     Séparer le build et le run. Le build, c'est construire : il coûte cher au début. Le run, c'est faire tourner :
+     il dure, et il ne doit jamais tomber à zéro.
+     Suivre la montée en charge. Une équipe ne démarre pas au complet le premier mois. Un tableau mois
+     par mois évite de payer 18 mois pour quelqu'un qui arrive au mois 5.
+     Garder une réserve. Une provision pour imprévus de 10 à 15 % est une pratique courante.
+     Ce qu'on retire s'écrit. Un budget réduit n'est pas un budget raboté partout : on retire des blocs entiers,
+     et on dit lesquels.
+
+La gouvernance des données
+Gouverner les données, c'est savoir, pour chaque domaine, qui décide, ce que veulent dire les données, et ce
+qu'elles valent.
+     Les rôles : un data owner qui décide et répond, un data steward qui fait vivre le domaine, et la DPO pour
+     la conformité.
+     L'instance : un comité de gouvernance qui se réunit régulièrement, tranche les conflits d'usage et valide
+     les accès.
+     Les outils : un glossaire métier (ce que veut dire « réhospitalisation » chez nous), un catalogue des
+     données (ce qui existe et où), le lignage (d'où vient chaque indicateur), et des règles de qualité mesurées.
+     La politique d'accès : qui voit quoi, à quel niveau de détail, et qui valide une nouvelle demande.
+
+Le RACI
+
+ Lettre          Rôle                             Règle
+
+ R               Réalise                          Un ou plusieurs
+
+ A               Répond et décide                 Un seul, toujours
+
+ C               Est consulté avant               Avis demandé, pas obligatoire à suivre
+
+ I               Est informé après                Pas d'avis à donner
+
+
+La feuille de route
+     Trois jalons, chacun avec une date, un livrable et un métier qui s'en sert.
+
+
+
+
+                                                       Page 4 sur 5
+    Le premier livrable doit être utile vite, même modeste : une liste, un indicateur, une alerte. Il prouve
+    que le projet sert, et il finance la suite.
+    Chaque jalon dit ce qui conditionne le suivant : un recrutement, une autorisation, un accès aux données.
+
+
+Déroulé
+9h45. Sortie d'information R6, registre et entrée R6 du journal.
+10h à 10h20. Capsule : l'histoire de Nathalie, et l'exercice.
+10h20 à 12h15. Atelier L5.
+12h15. Rendu 5 dans le devoir Teams : L5 et entrée R6 du journal, avant de ranger les ordinateurs.
+12h15 à 13h. Copie 3, sur table, individuelle.
+
+
+Livrable L5 : organisation et budget
+ 1. L'équipe, sur une page : rôles, nombre d'ETP, interne ou externe, sur 18 mois, en tenant compte de ce
+    que vous a appris R6.
+ 2. Un RACI sur six activités imposées : ingestion des données des capteurs, qualité du codage PMSI, accès
+    aux données de santé, développement du score, mise en production, réponse aux demandes de droits des
+    personnes.
+ 3. Un budget sur 18 mois qui tient dans l'enveloppe en vigueur après les dernières sorties d'information.
+ 4. Un paragraphe « ce que nous avons retiré et pourquoi », relié à la décision visée dans L1.
+ 5. Une feuille de route en trois jalons, avec un premier livrable utilisé par un métier à trois mois.
+
+
+À la fin de la séance
+    L5 : équipe, RACI, budget, ce que vous avez retiré, feuille de route
+    Registre à jour
+    Entrée R6 du journal
+L'ensemble part au rendu 5, jeudi à 12h15, dans le devoir Teams, avant la copie 3.
+
+
+
+
+                                                     Page 5 sur 5
+

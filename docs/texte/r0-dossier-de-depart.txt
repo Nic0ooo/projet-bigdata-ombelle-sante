@@ -1,0 +1,161 @@
+                                                                                  Architecture de projet Big Data
+                                                                     M2 IABD, ESGI Lyon. Code matière 05CW07239
+
+
+
+
+Dossier de départ Ombelle Santé (R0)
+
+  Dossier remis à tous les cabinets candidats. Document R0, jeudi 5 novembre, 8h20.
+
+
+
+1. Lettre de mission
+
+  Lyon, le 15 octobre 2026
+  Madame, Monsieur,
+  Ombelle Santé souhaite franchir une étape. Nos établissements produisent chaque jour une quantité
+  considérable de données, dans nos services comme au domicile de nos patients, et nous sommes
+  convaincus qu'elles peuvent nous aider à mieux soigner et à mieux nous organiser.
+  Nous lançons donc une consultation pour la conception d'une plateforme de données qui fasse d'Ombelle
+  un acteur pleinement piloté par la donnée. Nous attendons de votre cabinet une proposition qui couvre la
+  vision, l'architecture, l'organisation et le budget, et qui nous permette d'obtenir des résultats rapidement.
+  La télésurveillance de nos patients à domicile est pour nous un axe stratégique, et nous pensons que
+  l'intelligence artificielle peut y jouer un rôle important, notamment pour anticiper les réhospitalisations.
+  Les modalités de remise et le calendrier de la consultation vous seront précisés ultérieurement.
+  Je vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.
+  Hélène Marchal
+  Directrice générale, Ombelle Santé
+
+
+2. Ombelle Santé en bref
+Ombelle Santé est un réseau privé à but non lucratif de 12 établissements de soins médicaux et de
+réadaptation (SMR) en Auvergne-Rhône-Alpes. On y accueille des patients après une chirurgie, un accident
+vasculaire, une décompensation cardiaque ou respiratoire, pour quelques semaines de rééducation avant leur
+retour à domicile.
+
+ Établissement                        Ville                          Lits    Dans le réseau depuis
+
+ Ombelle Fourvière                    Lyon                           140     2009
+
+ Ombelle Croix-Rousse                 Lyon                           95      2011
+
+ Ombelle Bellecombe                   Villeurbanne                   110     2012
+
+ Ombelle Bastille                     Grenoble                       120     2014
+
+ Ombelle Forez                        Saint-Étienne                  90      2015
+
+ Ombelle Semnoz                       Annecy                         85      2016
+
+ Ombelle Lémenc                       Chambéry                       70      2017
+
+
+
+                                                      Page 1 sur 3
+ Établissement                            Ville                         Lits       Dans le réseau depuis
+
+ Ombelle Rhône                            Valence                       80         2019
+
+ Ombelle Bresse                           Bourg-en-Bresse               65         2020
+
+ Ombelle Roannais                         Roanne                        75         2025
+
+ Ombelle Viennois                         Vienne                        85         2025
+
+ Ombelle Drôme Sud                        Montélimar                    70         2025
+
+Les trois derniers établissements ont été rachetés il y a dix-huit mois.
+Depuis 2022, Ombelle propose aux patients qui rentrent chez eux un programme de télésurveillance,
+Ombelle Domicile. Environ 3 200 patients sont suivis aujourd'hui. Ils sont équipés de capteurs fournis par la
+société Vitalink, et une équipe d'infirmières reçoit les alertes depuis un centre de suivi basé à Lyon.
+
+
+3. Organigramme simplifié
+ Fonction                                                                              Personne
+
+ Directrice générale                                                                   Hélène Marchal
+
+ Directeur administratif et financier                                                  Pierre Gauthier
+
+ Directrice médicale                                                                   Dr Anne Duval
+
+ Médecin DIM (information médicale)                                                    Dr Bruno Faure
+
+ Directeur des systèmes d'information                                                  Karim Benali
+
+ Déléguée à la protection des données                                                  Sophie Lemaire
+
+ Cadre de santé, centre de télésurveillance                                            Nadia Roux
+
+ Directrice des ressources humaines                                                    Claire Morin
+
+
+
+4. Quelques chiffres
+ Indicateur                                                 Valeur
+
+ Lits                                                       1 085
+
+ Séjours par an                                             environ 14 000
+
+ Patients suivis en télésurveillance                        environ 3 200
+
+ Oxymètres de nuit en service                               2 900
+
+ Tensiomètres connectés                                     3 100
+
+ Balances connectées                                        2 400
+
+ Podomètres                                                 1 800
+
+ Dossier patient informatisé (DPI)                          en place dans tous les établissements
+
+
+
+
+                                                       Page 2 sur 3
+5. Extrait du contrat avec Vitalink
+
+  Article 7 : Données
+  7.1 Le Prestataire assure la collecte, la transmission et l'hébergement des mesures issues des dispositifs
+  fournis au Client, dans des conditions conformes à la réglementation applicable aux données de santé.
+  7.2 Le Client dispose d'un accès aux mesures de ses patients via l'interface de programmation mise à
+  disposition par le Prestataire, dans les limites techniques précisées en annexe 3.
+  7.3 Les données brutes issues des dispositifs, ainsi que
+
+La suite de l'article et l'annexe 3 ne figurent pas dans l'extrait transmis.
+
+
+6. Glossaire
+ Terme               Ce que ça veut dire
+
+ SMR                 Soins médicaux et de réadaptation, anciennement SSR. Séjours de rééducation après un épisode
+                     aigu.
+
+ DPI                 Dossier patient informatisé. Le logiciel où les soignants saisissent tout ce qui concerne le patient
+                     pendant son séjour.
+
+ PMSI                Programme de médicalisation des systèmes d'information. Le codage normalisé de chaque séjour
+                     (diagnostics, actes, dépendance), qui sert notamment au financement de l'établissement.
+
+ DIM                 Département d'information médicale. Le médecin DIM est responsable du codage PMSI et de la
+                     qualité de l'information médicale.
+
+ HDS                 Hébergement de données de santé. Certification obligatoire pour héberger, pour le compte d'un
+                     établissement ou d'un patient, des données de santé recueillies lors de soins, de prévention ou de
+                     suivi médico-social.
+
+ ARS                 Agence régionale de santé. Elle autorise, contrôle et finance une partie de l'activité des
+                     établissements.
+
+ Réhospitalisation Retour d'un patient à l'hôpital dans les jours qui suivent sa sortie, souvent mesuré à 30 jours.
+
+ Télésurveillance    Suivi à distance d'un patient par des mesures transmises automatiquement, avec des alertes traitées
+                     par des soignants.
+
+
+
+
+                                                          Page 3 sur 3
+

@@ -1,0 +1,156 @@
+                                                                                   Architecture de projet Big Data
+                                                                      M2 IABD, ESGI Lyon. Code matière 05CW07239
+
+
+
+
+Séance 1 : Cadrer dans le flou
+
+  Jeudi 5 novembre, 8h à 11h15, présentiel. Copie 1 à 9h45.
+
+
+  Sommaire
+     La règle
+     L'histoire de Claire
+        Premier rendez-vous : « on a plein de données »
+        Deuxième question : « qu'est-ce qui vous empêche de dormir ? »
+        Troisième question : « combien en perdez-vous ? »
+        Quatrième demande : « et tant qu'on y est… »
+        Trois semaines de silence
+     En résumé
+     Déroulé
+     Livrable L1 : note de cadrage
+     À la fin de la séance
+
+
+
+La règle
+Un projet data part d'une décision à éclairer, jamais d'un tas de données.
+Le point de départ peut être un besoin métier ou une vraie question, comme « je veux comprendre pourquoi
+mes abonnés partent ». Mais tant qu'on ne sait pas quelle décision cette question va changer, on ne sait ni
+quelles données chercher, ni quand on aura réussi.
+
+
+L'histoire de Claire
+
+Premier rendez-vous : « on a plein de données »
+Claire dirige une école de musique en ligne : 12 000 abonnés, des cours en vidéo, trois conseillers
+pédagogiques. Elle vous reçoit et commence ainsi :
+
+  « On a plein de données. Enfin, je crois. Il faudrait que je demande à notre prestataire où elles sont. Il
+  nous conseille de monter un data lake. »
+
+C'est le début de presque tous les projets. Si vous partez de là, voici la suite : six mois à rapatrier tout ce qui
+existe, des dizaines de tableaux de bord, une belle démonstration. Et un an plus tard, personne chez Claire ne
+fait quoi que ce soit différemment.
+Le data lake n'est pas un besoin. C'est une solution qui cherche son problème.
+
+
+
+
+                                                       Page 1 sur 4
+Deuxième question : « qu'est-ce qui vous empêche de dormir ? »
+Vous posez la question autrement. Claire répond tout de suite :
+
+  « Je perds des abonnés, et je ne sais pas pourquoi. »
+
+C'est un vrai besoin métier, un bien meilleur point de départ. Mais ce n'est pas encore une décision. Alors
+vous insistez : « Si vous saviez qui va partir, que feriez-vous de différent ? »
+
+  « Chaque lundi, mes conseillers appelleraient les abonnés sur le point de partir, pour leur proposer un
+  cours d'essai avec un professeur. Aujourd'hui, ils n'appellent que ceux qui se plaignent. »
+
+Là, vous tenez une décision. Elle répond à quatre questions :
+    Qui décide ? Les trois conseillers pédagogiques.
+    Quoi ? Quels abonnés appeler en priorité.
+    À quelle fréquence ? Chaque lundi.
+    Sur quelle base aujourd'hui ? Les plaintes, donc trop tard.
+Avec cette phrase, tout le reste se déduit. Il faut les données qui annoncent un départ : connexions, cours
+abandonnés, échecs de paiement. Une mise à jour hebdomadaire suffit, inutile de viser le temps réel. Et on
+sait déjà à quoi ressemblera le premier livrable : une liste de cinquante noms, chaque lundi matin.
+
+Troisième question : « combien en perdez-vous ? »
+
+  « Beaucoup. »
+
+Ça ne suffit pas. Vous creusez avec elle et vous trouvez le chiffre : 4 % des abonnés partent chaque mois.
+Claire voudrait descendre à 3 % d'ici un an.
+Les deux chiffres comptent, et chacun a son rôle.
+Le 4 % est le point de départ. Il est mesuré avant le projet. Sans lui, dans un an, impossible de dire si le
+projet a servi à quelque chose.
+Le 3 % est le cap. C'est lui qui permettra de dire, dans un an, si l'on a réussi ou non. Et le simple fait de le
+chiffrer oblige à se demander s'il est atteignable. Aucun service par abonnement ne garde tous ses abonnés :
+viser zéro départ n'aurait aucun sens. Passer de 4 % à 3 %, en revanche, se discute, se justifie, et se vérifie.
+Un indicateur sans valeur de départ ni cible n'est qu'une promesse.
+
+Quatrième demande : « et tant qu'on y est… »
+En fin de réunion, Claire s'enthousiasme :
+
+  « Et tant qu'on y est, on pourrait recommander des cours à chacun, analyser les avis, et refaire la page
+  d'accueil. »
+
+Chaque idée est raisonnable. Ensemble, elles font un projet qu'on ne livrera jamais. Alors vous écrivez noir
+sur blanc ce qui est hors du projet : pas de recommandation de cours, pas d'analyse des avis, pas de refonte
+du site. Cette liste vous protège de toutes les “bonnes” idées qui arriveront en cours de route.
+
+
+
+
+                                                     Page 2 sur 4
+Trois semaines de silence
+Vous demandez au prestataire si l'on peut récupérer l'historique des connexions. Pas de réponse. Une
+semaine, deux, trois.
+Le mauvais réflexe, c'est d'attendre. Le bon, c'est d'écrire une hypothèse et d'avancer :
+    L'hypothèse : on pourra obtenir un export mensuel des connexions.
+    Ce qui la confirmera : la réponse du prestataire.
+    Si elle est fausse : on se rabat sur les données de paiement, que Claire possède déjà.
+Vous avancez avec. Le jour où la réponse arrive, vous savez exactement ce qui change dans votre plan.
+
+
+En résumé
+    On part d'une décision à éclairer, ou d'une question métier qu'on transforme en décision.
+    Une décision tient en une phrase : qui décide, quoi, à quelle fréquence, sur quelle base aujourd'hui.
+    L'indicateur de succès a une valeur de départ, mesurée avant le projet, et une cible réaliste : c'est le cap
+    qui dira dans un an si l'on a réussi.
+    Le périmètre s'écrit aussi par ce qu'on ne fera pas.
+    Quand une information manque, on écrit une hypothèse, ce qui la confirmerait, et ce qu'on fera si elle
+    tombe. Puis on avance.
+
+
+Déroulé
+8h à 8h20. Capsule : l'histoire de Claire.
+8h20 à 8h50. Remise du dossier de départ (R0). Constitution des trinômes et choix des rôles.
+8h50 à 9h30. Lecture individuelle du dossier, sans échanger avec votre groupe. Annotez, et relevez tout ce
+que vous ne savez pas.
+9h45 à 10h30. Copie 1, sur table, individuelle.
+10h30 à 11h15. En groupe : mise en commun des questions de chacun, premières hypothèses, première
+version de L1 et du registre, entrée R0 du journal.
+
+
+Livrable L1 : note de cadrage
+Une page, sans aucun nom de technologie. Elle contient :
+ 1. La décision métier visée, en une phrase : qui décide, quoi, à quelle fréquence, sur quelle base
+    aujourd'hui.
+ 2. Un indicateur de succès chiffré à 12 mois, avec sa valeur actuelle si on la connaît, sinon la façon dont on
+    la mesurera.
+ 3. Trois éléments dans le périmètre, et trois éléments explicitement hors périmètre.
+ 4. Le premier livrable utile à un métier, et sa date.
+Chaque élément cite sa source (une pièce du dossier, ou plus tard une sortie d'information) ou renvoie à une
+hypothèse du registre, par son numéro.
+L1 sera reprise plusieurs fois. Gardez chaque version : le chemin compte autant que le résultat.
+
+
+
+
+                                                      Page 3 sur 4
+À la fin de la séance
+    L1 v1
+    Registre des hypothèses, premières lignes
+    Entrée R0 du journal de bord : ce que vous croyez comprendre, les pistes que vous ouvrez
+L'ensemble part au rendu 1, jeudi à 15h30.
+
+
+
+
+                                                  Page 4 sur 4
+

@@ -1,0 +1,209 @@
+                                                                                     Architecture de projet Big Data
+                                                                        M2 IABD, ESGI Lyon. Code matière 05CW07239
+
+
+
+
+Séance 6 : Exploitation, déploiement et soutenance
+
+  Vendredi 4 décembre, 8h à 13h, en visio. Rendu 6 à 9h30, soutenances de 9h45 à 13h.
+
+
+  Sommaire
+      La règle
+      L'histoire du lundi à zéro
+         Dimanche, 2h du matin
+         Lundi, 9h
+         Mardi, 11h
+         Ce qui aurait tout arrêté
+      En résumé
+      Exercice flash, 5 minutes
+      Les bases à garder sous la main
+         Les dimensions de la qualité d'une donnée
+         Tester le code et la donnée
+         Trois environnements
+         Déployer sans tout casser
+         Faire tourner en production
+      Déroulé
+      À rendre avant l'oral
+      L'oral
+      Barème de l'oral
+
+
+
+La règle
+Une donnée se teste comme du code et se livre comme un produit.
+Une plateforme qui marche le jour de la recette peut casser le lendemain sans qu'une ligne de code ait
+changé. Il suffit qu'une source change de format ou arrive vide. Ce qu'on livre à un métier doit être tenu
+comme un produit : surveillé, documenté, avec quelqu'un qui en répond.
+
+
+L'histoire du lundi à zéro
+
+Dimanche, 2h du matin
+Un réseau de trente agences de location de vélos suit ses réclamations clients dans un tableau de bord.
+Chaque nuit, le logiciel du service client envoie un export, et la chaîne de traitement met le tableau à jour.
+Ce dimanche-là, l'éditeur du logiciel installe une mise à jour. L'export de la nuit arrive à l'heure, avec le bon
+nom de fichier. Il est simplement vide.
+La chaîne ne voit rien d'anormal : le fichier est là, elle le charge.
+
+
+                                                       Page 1 sur 4
+Lundi, 9h
+Le tableau de bord affiche zéro réclamation sur la semaine. En comité de direction, on s'en étonne à peine, on
+félicite le service client. Un message de remerciements part dans toutes les agences.
+
+Mardi, 11h
+La cheffe de l'agence de Lyon appelle. Elle a traité elle-même huit réclamations la semaine dernière, et le
+tableau dit zéro. Il lui a suffi d'un coup d'œil pour voir que c'était faux.
+
+Ce qui aurait tout arrêté
+Quatre choses, et aucune n'est compliquée :
+ 1. Un contrôle automatique. Trois lignes de code : « Le nombre de lignes a-t-il chuté de plus de moitié par
+    rapport à la veille ? » Si oui, on bloque le chargement et on prévient l'équipe. À chaque chargement, on
+    peut vérifier que la donnée est arrivée, qu'elle est complète, que ses valeurs sont plausibles, et qu'elle
+    ressemble à celle de la veille.
+ 2. Un contrat de données avec l'éditeur. Un accord écrit entre celui qui produit la donnée et celui qui la
+    consomme : le format, l'heure de livraison, les règles de qualité, et surtout l'obligation de prévenir avant
+    une mise à jour.
+ 3. Une recette avec les métiers. La cheffe d'agence a vu l'erreur en une minute. Ce sont les utilisateurs qui
+    savent si un chiffre est juste, pas l'équipe qui l'a calculé. Une recette se prépare avec des cas dont on
+    connaît déjà la bonne réponse.
+ 4. Un déploiement progressif et une supervision. Une nouvelle version s'ouvre d'abord à une agence, puis
+    à trois, puis à toutes, avec un retour arrière possible. Et en production, on surveille en continu la
+    fraîcheur des données, les échecs de traitement, les coûts, et la dérive des modèles, comme vous l'avez
+    vu en orchestration ML.
+
+
+En résumé
+    Tester le code ne suffit pas, il faut tester la donnée à chaque chargement.
+    Un contrat de données transforme une dépendance implicite en engagement écrit.
+    La recette se fait avec ceux qui utilisent les chiffres.
+    On déploie progressivement, avec un retour arrière possible.
+    En production, on surveille la fraîcheur, les échecs, les coûts et la dérive.
+
+
+Exercice flash, 5 minutes
+Écrivez trois contrôles automatiques à appliquer chaque nuit à l'export complet d'un DPI, et pour chacun ce
+qui se passe s'il échoue.
+Le DPI, c'est le dossier patient informatisé : le logiciel où les soignants saisissent tout ce qui concerne un
+patient pendant son séjour (observations, traitements, examens, sortie). Chez Ombelle, il produit chaque nuit
+un export complet de sa base en fichiers CSV.
+
+
+
+
+                                                      Page 2 sur 4
+Les bases à garder sous la main
+Cette fiche ne se récite pas. Elle vous sert à finaliser le dossier et à préparer les questions de l'oral sur
+l'exploitation, les tests et le déploiement.
+
+Les dimensions de la qualité d'une donnée
+ Dimension       La question                                          Exemple de contrôle
+
+ Complétude      Rien ne manque ?                                     Le nombre de lignes est proche de celui de la veille
+
+ Fraîcheur       Elle est à jour ?                                    L'export de la nuit est arrivé avant 6h
+
+ Validité        Elle respecte son format ?                           Une date est une date, un âge est entre 0 et 120
+
+ Exactitude      Elle dit vrai ?                                      Le total recoupe celui du logiciel source
+
+ Unicité         Pas de doublons ?                                    Un patient n'apparaît qu'une fois par séjour
+
+ Cohérence       Elle s'accorde avec les autres sources ?             Une sortie d'hôpital ne précède pas l'entrée
+
+
+Tester le code et la donnée
+    Les tests du code : chaque fonction fait ce qu'elle doit (tests unitaires), les briques fonctionnent
+    ensemble (tests d'intégration), une nouvelle version ne casse pas l'ancienne (non-régression).
+    Les tests de la donnée : les contrôles du tableau ci-dessus, joués à chaque chargement. Un contrôle qui
+    échoue bloque la suite ou déclenche une alerte.
+    Le contrat de données : le producteur s'engage sur le schéma, la fréquence, l'heure de livraison et les
+    règles de qualité, et prévient avant tout changement.
+
+Trois environnements
+ Environnement        À quoi il sert                    Les données
+
+ Développement        Construire                        Des données fictives ou un petit échantillon pseudonymisé
+
+ Recette              Faire valider par les métiers     Des données pseudonymisées, proches du réel
+
+ Production           Servir les métiers                Les vraies données, accès restreints
+
+Avec des données de santé, on ne copie jamais la production telle quelle en développement.
+
+Déployer sans tout casser
+    Le pilote : on ouvre à un site, puis à quelques-uns, puis à tous.
+    Le fonctionnement en parallèle : le nouveau calcul tourne à côté de l'ancien pendant quelques
+    semaines, on compare, puis on bascule.
+    Le retour arrière : on sait revenir à la version précédente en quelques minutes, et on l'a déjà essayé.
+
+Faire tourner en production
+    Les engagements de service : ce qu'on promet aux métiers, par exemple « le tableau est à jour chaque
+    matin à 8h, 99 % des jours ».
+    La supervision : fraîcheur des données, échecs de traitement, temps d'exécution, coûts, dérive des
+    modèles.
+    L'astreinte : qui est appelé si un flux tombe la nuit, et avec quelle procédure écrite.
+
+
+                                                            Page 3 sur 4
+    Après un incident : on écrit ce qui s'est passé, pourquoi, et ce qu'on change pour que ça ne recommence
+    pas. Sans chercher de coupable.
+
+
+Déroulé
+8h à 8h20. Capsule : l'histoire du lundi à zéro, et l'exercice. Pas de livrable : ces notions feront l'objet de
+questions à l'oral.
+8h20 à 9h30. Finalisation du dossier et du support. Tirage de l'ordre de passage.
+9h30. Rendu 6 dans le devoir Teams : dossier final et support d'oral.
+9h45 à 13h. Soutenances.
+
+
+À rendre avant l'oral
+    Le dossier final : la proposition et le chemin, avec le registre et les entrées du journal en annexe
+    Le support d'oral, dix diapositives au plus
+L'ensemble part au rendu 6, vendredi à 9h30, dans le devoir Teams.
+
+
+L'oral
+Vous présentez votre proposition au comité qui choisira le prestataire d'Ombelle Santé. Chaque trinôme
+dispose de 24 minutes.
+
+ Temps     Quoi
+
+ 10 min    Présentation, dix diapositives au plus dont deux sur le chemin parcouru. Les trois membres parlent.
+
+ 5 min     Un événement imprévu est annoncé. Une minute de concertation à voix haute, puis le chef de projet tranche.
+
+ 6 min     Questions individuelles, deux minutes par rôle, sans concertation.
+
+ 3 min     Battement.
+
+Caméras allumées pour tout le trinôme. Le comité tient le partage d'écran : vous ne pilotez rien, vous parlez.
+
+
+Barème de l'oral
+ Critère                                                                                                         Points
+
+ Cohérence de la proposition et clarté de la synthèse pour la directrice générale                                3
+
+ Lisibilité du chemin parcouru : hypothèses, pistes, décisions, fidèles aux rendus datés                         4
+
+ Maîtrise des chiffres et du cadre juridique                                                                     3
+
+ Qualité de la décision prise face à l'imprévu                                                                   2
+
+ Maîtrise de sa partie, justifiée par les sorties ou les hypothèses (individuel)                                 4
+
+ Capacité à refaire un calcul ou un raisonnement à voix haute (individuel)                                       2
+
+ Réponse sur l'exploitation, les tests et le déploiement (individuel)                                            2
+
+Les quatre premiers critères sont communs au trinôme, les trois derniers sont individuels.
+
+
+
+
+                                                            Page 4 sur 4
+

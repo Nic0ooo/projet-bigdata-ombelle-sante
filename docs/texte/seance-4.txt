@@ -1,0 +1,272 @@
+                                                                                     Architecture de projet Big Data
+                                                                        M2 IABD, ESGI Lyon. Code matière 05CW07239
+
+
+
+
+Séance 4 : Architecture et chiffrage
+
+  Lundi 30 novembre, 11h30 à 19h, présentiel. Copie 2 à 11h30. Sorties d'information à 14h et à 18h.
+  Rendu 4 à 19h.
+
+
+  Sommaire
+     Les règles
+     Première histoire : Sophie et le rapport du 5 du mois
+        Une architecture très moderne
+        La question qui change tout
+        Qui voit quoi, et à quelle étape ?
+        Où héberger, et qui fait tourner ?
+     Deuxième histoire : Marc et le budget sans équipe
+        Un chiffrage soigné
+        Le stockage, refait au crayon
+        Six mois après la mise en service
+     En résumé
+     Exercices flash, 5 minutes chacun
+     Les bases à garder sous la main
+        Les cinq étages d'une plateforme de données
+        Lots, micro-lots, flux
+        Lac, entrepôt, lakehouse
+        Le médaillon et l'accès aux données
+        Où héberger
+        Chiffrer
+     Déroulé
+     Livrable L4 : architecture et chiffrage
+     À la fin de la séance
+
+
+
+Les règles
+Chaque brique d'architecture répond à une contrainte nommée. Si vous ne savez pas dire quelle
+contrainte justifie une brique, la brique est de trop.
+Un chiffrage se vérifie à la main. Si vous ne savez pas refaire votre chiffre à voix haute, vous ne savez pas
+d'où il vient.
+
+
+
+
+                                                         Page 1 sur 6
+Première histoire : Sophie et le rapport du 5 du mois
+
+Une architecture très moderne
+Sophie est data engineer chez un fournisseur d'énergie. La direction demande un rapport sur la
+consommation de ses clients, par région. L'équipe se lance avec enthousiasme : bus de messages, calcul en
+continu, tableaux de bord rafraîchis à la seconde. C'est moderne, c'est ce que tout le monde fait.
+Six mois plus tard, Sophie est d'astreinte une nuit sur trois. Le flux tombe, il faut le relancer, la facture de
+calcul grimpe chaque mois.
+
+La question qui change tout
+Une nouvelle responsable arrive et pose une seule question : « Ce rapport, quand est-il lu ? »
+Réponse : une fois par mois, le 5, en comité de direction.
+Un traitement chaque nuit aurait suffi, pour une fraction du coût et sans astreinte. Le temps réel ne se choisit
+pas par principe. Il se justifie par une décision qui ne peut pas attendre.
+Quelques mois plus tard, la même entreprise veut détecter les compteurs en panne en moins de cinq minutes.
+Là, le flux est justifié. Une même plateforme a souvent les deux, et c'est à chaque fois la décision qui
+tranche. La source aussi pose sa limite : une donnée exportée une fois par nuit ne sera jamais temps réel.
+
+Qui voit quoi, et à quelle étape ?
+L'architecture de Sophie suit le modèle médaillon que vous connaissez : bronze pour la donnée brute telle
+qu'elle arrive, silver pour la donnée nettoyée, gold pour la donnée prête à l'usage d'un métier.
+Un jour, un stagiaire fait une requête sur la couche bronze et tombe sur les noms, adresses et consommations
+de milliers de clients. Personne n'avait décidé qui pouvait accéder au bronze, ni à quel moment on retirait les
+noms.
+À quelle couche pseudonymise-t-on, et qui a le droit de voir ce qu'il y a avant ? C'est une décision juridique
+autant que technique, et elle se prend en dessinant le schéma.
+
+Où héberger, et qui fait tourner ?
+Pour des données sensibles, héberger, c'est choisir une certification : un cloud certifié, ou des serveurs sur
+site certifiés. La fin d'un contrat d'hébergement est le moment où ce choix se rouvre.
+Et pour chaque brique, la même question : l'acheter, ou la construire ? Une brique achetée coûte une licence
+et une dépendance. Une brique construite coûte une équipe qui la maintient, y compris à 3h du matin. Le bon
+choix dépend moins de la technologie que des gens que vous aurez pour la faire vivre.
+
+
+Deuxième histoire : Marc et le budget sans équipe
+
+Un chiffrage soigné
+Marc travaille chez un fabricant de pièces automobiles. Il présente le budget d'une plateforme qui doit
+collecter les données des machines de trois usines, pour anticiper les pannes. Les serveurs, le stockage, les
+licences : tout est chiffré. 40 000 € par an d'infrastructure. Le comité valide.
+
+
+
+
+                                                      Page 2 sur 6
+Le stockage, refait au crayon
+Pour le stockage, Marc a pris le volume brut : 10 To par an. Mais il faut dérouler le calcul jusqu'au bout :
+    Rétention. On garde trois ans, donc 30 To.
+    Compression. Les formats de stockage divisent ici le volume par quatre, donc 7,5 To.
+    Réplication. Chaque donnée est copiée trois fois pour la sécurité, donc 22,5 To.
+Sans ces étapes, le chiffre est faux d'un facteur deux ou trois, dans un sens ou dans l'autre. Et chaque
+coefficient s'écrit avec sa source.
+
+Six mois après la mise en service
+Le budget prévoyait « un peu de maintenance ». Mais une source change de format, un flux tombe un
+vendredi soir, personne n'est là pour le relancer. Les métiers arrêtent de regarder des tableaux de bord qui ne
+sont plus à jour. La plateforme est abandonnée.
+L'équipe qui manquait, un data engineer et un analyste pour la faire tourner, aurait coûté environ 150 000 €
+par an. Presque quatre fois l'infrastructure. C'est presque toujours le poste le plus lourd, et le plus souvent
+oublié.
+
+
+En résumé
+    Lots ou flux : c'est la décision métier qui tranche, et la source qui pose la limite.
+    À chaque couche du médaillon, on décide qui accède à quoi, et où l'on pseudonymise.
+    Héberger des données sensibles, c'est choisir une certification. Acheter ou construire, c'est choisir qui
+    maintiendra.
+    Un chiffrage couvre au moins quatre postes : stockage, calcul, licences, équipe.
+    Le stockage se déroule jusqu'au bout : brut, rétention, compression, réplication.
+    Chaque nombre a son hypothèse écrite à côté.
+
+
+Exercices flash, 5 minutes chacun
+Après l'histoire de Sophie. Lots ou flux, et pourquoi ?
+ 1. La facturation mensuelle des clients d'un opérateur télécom.
+ 2. La détection de fraude sur un paiement par carte.
+ 3. Le tableau de bord des ventes de la veille, lu chaque matin à 9h.
+Après l'histoire de Marc. Une plateforme reçoit 50 Go par jour. On garde 5 ans, on compresse d'un facteur
+5, on réplique en 3 exemplaires. Quel stockage faut-il prévoir à 5 ans ?
+
+
+Les bases à garder sous la main
+Cette fiche ne se récite pas. Elle sert pendant l'atelier, pour dessiner et chiffrer L4 sans aller chercher ailleurs.
+
+Les cinq étages d'une plateforme de données
+Quelle que soit la technologie, on retrouve toujours les mêmes étages. Votre schéma doit les faire apparaître.
+ 1. Les sources : logiciels métiers, capteurs, fichiers, partenaires.
+
+
+
+
+                                                       Page 3 sur 6
+ 2. L'ingestion : comment la donnée entre, par lots (un fichier chaque nuit) ou en flux (des messages en
+    continu).
+ 3. Le stockage : où elle est conservée, et sous quelle forme.
+ 4. Le traitement : nettoyage, croisement, calcul des indicateurs, entraînement des modèles.
+ 5. L'exposition : ce que voient les métiers, tableau de bord, liste, alerte, API.
+À chaque étage, deux questions : qui y a accès, et à quelle fréquence la donnée y passe.
+
+Lots, micro-lots, flux
+
+ Mode         Fraîcheur                   Coût et complexité               Quand le choisir
+
+ Lots         Quelques heures à un        Faible                           La décision se prend chaque jour ou moins souvent
+              jour
+
+ Micro-       Quelques minutes            Moyen                            On veut du quasi temps réel sans astreinte lourde
+ lots
+
+ Flux         Quelques secondes           Élevé, astreinte à               La décision ne peut pas attendre : panne, fraude, alerte
+                                          prévoir                          patient
+
+
+Lac, entrepôt, lakehouse
+    Le lac de données stocke tout, brut, dans des fichiers, à bas coût. Pratique pour garder l'historique,
+    difficile à interroger proprement.
+    L'entrepôt de données stocke des données structurées, prêtes à interroger en SQL. Confortable pour les
+    métiers, plus cher et plus rigide.
+    Le lakehouse combine les deux : des fichiers à bas coût, avec une couche qui permet de les interroger
+    comme des tables. C'est ce que vous avez manipulé en Spark avec Delta.
+Les formats en colonnes comme Parquet ou Delta compressent bien : un facteur 3 à 10 par rapport à du CSV
+ou du JSON, selon les données.
+
+Le médaillon et l'accès aux données
+ Couche Contenu                                                            Qui y accède, en règle générale
+
+ Bronze     La donnée brute, telle qu'elle arrive, identifiants            Les data engineers, et personne d'autre
+            compris
+
+ Silver     La donnée nettoyée, conformée, pseudonymisée                   Les data engineers, les data scientists, les analystes
+                                                                           habilités
+
+ Gold       Les indicateurs et tables prêts pour un usage métier           Les métiers, chacun sur son périmètre
+
+La pseudonymisation se place au plus tôt, en général au passage de bronze à silver. La table de
+correspondance entre identifiants et pseudonymes se garde à part, avec un accès très restreint.
+
+Où héberger
+ Option                       Ce que vous gérez                                 Ce que vous achetez
+
+ Sur site                     Tout : serveurs, réseau, sécurité,                Rien, mais il faut l'équipe
+                              sauvegardes
+
+
+
+
+                                                            Page 4 sur 6
+ Option                    Ce que vous gérez                          Ce que vous achetez
+
+ Cloud, infrastructure     Systèmes, logiciels, données               Des machines et du stockage à la demande
+ (IaaS)
+
+ Cloud, plateforme         Vos traitements et vos données             Des services prêts à l'emploi : base, calcul,
+ (PaaS)                                                               orchestration
+
+ Logiciel en service       Le paramétrage et l'usage                  Une application complète
+ (SaaS)
+
+Pour des données de santé, l'option retenue doit être certifiée HDS pour l'activité concernée. Les grands
+fournisseurs de cloud et plusieurs acteurs français le sont : la vérification se fait dans la liste publiée par
+l'Agence du numérique en santé.
+
+Chiffrer
+    Les quatre postes minimum : stockage, calcul, licences, équipe de run.
+    Investissement ou fonctionnement. Des serveurs achetés sont un investissement, amorti sur plusieurs
+    années. Le cloud et les licences sont des coûts de fonctionnement, payés chaque mois. Les deux ne se
+    comparent qu'en coût total sur la même durée, trois ans par exemple.
+    La formule du stockage : volume brut par an × années de rétention ÷ facteur de compression × nombre
+    de copies.
+    Les unités : 1 Go = 1 000 Mo, 1 To = 1 000 Go. Dites-le si vous comptez en 1 024.
+    Des ordres de grandeur : le stockage objet standard coûte de l'ordre de 20 à 25 € par To et par mois,
+    beaucoup moins en archivage. Un data engineer coûte autour de 75 k€ par an chargé, un prestataire
+    autour de 650 € par jour.
+
+
+Déroulé
+11h30 à 12h15. Copie 2, sur table, individuelle.
+12h15 à 13h. Retour collectif sur les AIPD rendues.
+14h. Sortie d'information R4, registre et entrée R4 du journal.
+14h15 à 14h35. Capsule : l'histoire de Sophie, et l'exercice.
+14h35 à 15h30. Schéma et fiches de décision.
+15h45 à 16h05. Capsule : l'histoire de Marc, et l'exercice.
+16h05 à 19h. Chiffrage, puis finalisation de L4.
+18h. Sortie d'information R5. Vous avez une heure pour écrire son entrée du journal et boucler le rendu 4.
+
+
+Livrable L4 : architecture et chiffrage
+Un schéma sur une page. Toutes les sources de L2. Les couches bronze, silver et gold. L'endroit où l'on
+pseudonymise. L'hébergement et sa certification. Chaque flux annoté lots ou flux, avec sa fréquence.
+Trois fiches de décision, une demi-page chacune. Deux sont imposées : l'hébergement, et le traitement des
+flux des capteurs. La troisième est libre.
+
+
+
+
+                                                       Page 5 sur 6
+ Rubrique              Contenu
+
+ Contexte              La question à trancher, en deux phrases
+
+ Options               Au moins deux, décrites honnêtement
+
+ Décision              L'option retenue
+
+ Ce qu'on perd         Ce que l'option écartée aurait apporté
+
+ Ce qui tranche        La sortie d'information ou l'hypothèse qui fait pencher la balance
+
+Un chiffrage annuel et à trois ans. Stockage, calcul, licences, équipe de run, total. Chaque nombre a son
+hypothèse à côté. Les volumes sont cohérents avec L2, et si ce n'est pas le cas, l'écart est expliqué.
+
+
+À la fin de la séance
+    L4 : schéma, trois fiches de décision, chiffrage
+    Registre à jour
+    Entrées R4 et R5 du journal
+L'ensemble part au rendu 4, lundi à 19h, dans le devoir Teams.
+
+
+
+
+                                                       Page 6 sur 6
+

@@ -1,0 +1,137 @@
+                                                                                     Architecture de projet Big Data
+                                                                        M2 IABD, ESGI Lyon. Code matière 05CW07239
+
+
+
+
+Séance 2 : Les données, leurs propriétaires et leurs défauts
+
+  Jeudi 5 novembre, 11h30 à 15h30, présentiel. Deux sorties d'information : 11h30 et 14h. Rendu 1 à
+  15h30.
+
+
+  Sommaire
+      La règle
+      L'histoire de Julien
+         La belle diapositive
+         Première surprise : les données ne sont pas à lui
+         Deuxième surprise : le chemin impose le rythme
+         Troisième surprise : la donnée a un défaut
+         Quatrième surprise : impossible de relier les deux
+         Et combien ça pèse ?
+      En résumé
+      Exercice flash, 5 minutes
+      Déroulé
+      Livrable L2 : inventaire des données
+      À la fin de la séance
+
+
+
+La règle
+Une donnée a toujours un propriétaire, un chemin et un défaut.
+Sur un schéma, une source de données est une boîte avec une flèche. Dans la réalité, quelqu'un peut vous en
+refuser l'accès, elle arrive par un chemin qui impose son rythme, et elle a des défauts que seuls ceux qui la
+produisent connaissent.
+
+
+L'histoire de Julien
+
+La belle diapositive
+Julien est responsable logistique chez un transporteur : 500 camions, des milliers de livraisons par semaine.
+Il veut deux choses : mesurer la ponctualité, et prévenir un client dès qu'une livraison prend du retard.
+Le prestataire lui présente une diapositive très simple. Une boîte « GPS des camions », une boîte « horaires
+de livraison », une flèche vers un tableau de bord. Trois semaines de travail, annonce-t-il. Il en faudra trois
+mois.
+
+Première surprise : les données ne sont pas à lui
+Les boîtiers GPS n'appartiennent pas au transporteur. Ils appartiennent au loueur des camions. Julien peut
+voir les positions sur le site du loueur, mais les récupérer, c'est autre chose : il faut relire le contrat, puis
+
+
+                                                         Page 1 sur 3
+négocier.
+Le propriétaire juridique d'une donnée, celui qui a des droits dessus, n'est pas toujours celui qui l'utilise tous
+les jours. Pour une donnée qui vient d'un fournisseur, il est même rarement votre client.
+
+Deuxième surprise : le chemin impose le rythme
+Le loueur finit par accepter un export. Un seul par jour, à minuit.
+Le rêve de prévenir le client en temps réel s'arrête là. Aucune architecture ne rendra « temps réel » une
+donnée qui arrive une fois par nuit. Julien a deux choix : renégocier un accès direct, et payer pour, ou
+changer la décision et prévenir les clients le lendemain.
+Le mode d'accès (API à la demande, export de fichier, flux continu, saisie à la main) fixe la fraîcheur de la
+donnée. On le découvre avant de dessiner, pas après.
+
+Troisième surprise : la donnée a un défaut
+Les horaires de livraison sont saisis par les chauffeurs sur une tablette. En regardant de près, une bonne partie
+des livraisons du jour sont enregistrées à 17h52, 17h53, 17h55. Les chauffeurs remplissent tout en fin de
+tournée, sur le parking.
+L'équipe informatique n'en savait rien. Les chefs d'agence, eux, le savaient depuis des années.
+La qualité d'une donnée se demande à ceux qui la produisent. Trois questions suffisent pour commencer : est-
+elle complète, est-elle à jour, est-elle cohérente avec les autres sources ?
+
+Quatrième surprise : impossible de relier les deux
+Le loueur identifie chaque camion par son numéro de châssis. Le logiciel de tournées utilise
+l'immatriculation. La table de correspondance entre les deux existe… dans un fichier Excel tenu à la main
+par une assistante.
+Deux sources sans identifiant commun ne se croisent pas, quel que soit l'outil.
+
+Et combien ça pèse ?
+Dernière question avant de chiffrer quoi que ce soit : le volume. On le calcule, terme par terme : nombre de
+camions, fois fréquence d'envoi, fois taille d'un message, fois durée. On écrit chaque hypothèse à côté. Un
+ordre de grandeur juste vaut mieux qu'un chiffre précis sorti de nulle part.
+C'est l'exercice qui suit.
+
+
+En résumé
+    Une donnée a un propriétaire juridique, qui n'est pas forcément celui qui la produit ni celui qui l'utilise.
+    Le mode d'accès fixe la fraîcheur : un export nocturne ne deviendra jamais du temps réel.
+    La qualité se demande à ceux qui produisent la donnée, pas à l'informatique.
+    Deux sources ne se croisent que si elles partagent un identifiant.
+    La volumétrie se calcule terme par terme, avec une hypothèse écrite pour chacun.
+
+
+
+
+                                                      Page 2 sur 3
+Exercice flash, 5 minutes
+Seul, sur papier, en posant chaque terme. Les 500 camions de Julien envoient une position GPS toutes les 30
+secondes, chaque message pèse 200 octets. Quelle volumétrie par jour, et par an ?
+
+
+Déroulé
+11h30. Sortie d'information R1, puis 15 minutes pour mettre à jour le registre, corriger L1 et écrire l'entrée
+R1 du journal.
+11h45 à 12h05. Capsule : l'histoire de Julien, et l'exercice.
+12h05 à 13h. Début de L2 avec ce que vous savez déjà.
+14h. Sortie d'information R2, puis registre et entrée R2 du journal.
+14h15 à 15h30. L2 complète, avec la volumétrie calculée, puis rendu 1.
+
+
+Livrable L2 : inventaire des données
+Un tableau d'au moins 8 sources, avec ces colonnes, dans cet ordre :
+
+ Source Propriétaire     Responsable    Mode      Fréquence Volumétrie      Donnée     Qualité     Justification
+        juridique        opérationnel   d'accès             annuelle        de         connue
+                                                            (calcul         santé      ou
+                                                            posé)                      supposée
+
+                                                                            oui /                  pièce, sortie
+                                                                            non                    ou hypothèse
+
+Sous le tableau, trois données que vous voudriez avoir et que vous n'avez pas, avec ce que leur absence vous
+coûte.
+
+
+À la fin de la séance
+    L2, inventaire des données
+    L1 corrigée après R1
+    Registre à jour
+    Entrées R1 et R2 du journal
+L'ensemble, avec l'entrée R0, part au rendu 1, jeudi à 15h30, dans le devoir Teams. Une photo ou un PDF
+suffit. C'est l'état de votre groupe ce jeudi soir, et il sera comparé à votre rendu du 29 novembre.
+
+
+
+
+                                                     Page 3 sur 3
+

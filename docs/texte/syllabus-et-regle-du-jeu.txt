@@ -1,0 +1,137 @@
+                                                                                 Architecture de projet Big Data
+                                                                    M2 IABD, ESGI Lyon. Code matière 05CW07239
+
+
+
+
+Syllabus et règles du jeu
+
+  M2 IABD, ESGI Lyon. Bloc de compétence RNCP38587BC04, B4 : piloter un projet d'intelligence
+  artificielle. Code matière 05CW07239. 21 heures, du 5 novembre au 4 décembre 2026.
+
+
+
+Ce que vous allez apprendre
+Un projet Big Data échoue rarement pour une raison technique. Il échoue parce qu'on n'a pas su quelle
+décision il devait servir, parce qu'on a découvert trop tard que la donnée n'appartenait pas à l'entreprise, parce
+que le budget prévoyait les serveurs mais pas l'équipe qui les fait tourner. Cette UE vous apprend à piloter un
+projet de données de bout en bout : le cadrer, identifier les données et leurs propriétaires, poser le cadre
+juridique, choisir une architecture, chiffrer, constituer l'équipe, et défendre le tout devant un comité.
+À la fin de l'UE, vous saurez :
+    cadrer un projet flou en une décision métier mesurable
+    cartographier des données, leurs propriétaires, leur chemin et leurs défauts
+    poser le cadre juridique d'un traitement de données sensibles avant de dessiner l'architecture
+    concevoir et chiffrer une architecture, et justifier chaque choix par une contrainte
+    dimensionner une équipe data et une gouvernance des données
+    avancer dans l'incertitude en écrivant vos hypothèses, et le montrer
+
+
+Le principe
+Vous formez des trinômes. Chaque trinôme est un cabinet de conseil qui répond à l'appel d'offres d'un même
+client fictif, Ombelle Santé, un réseau de soins de réadaptation. Les trinômes sont donc concurrents.
+Le dossier que vous recevez le premier jour est flou, comme le sont (souvent) les vrais. Personne chez
+Ombelle n'est disponible pour répondre à vos questions. Des informations arriveront au fil des séances, à
+heure fixe, sous forme de documents : des mails, des notes, des comptes rendus. Certaines confirmeront vos
+hypothèses, d'autres les feront tomber. Quelques questions resteront sans réponse jusqu'au bout.
+Ces documents sont les sorties d'information, numérotées R0 à R7. R0 est le dossier de départ, remis le
+premier jour. Les suivantes tombent à l'heure indiquée dans le calendrier. Les R viennent d'Ombelle : vous
+les recevez, vous ne les produisez pas.
+Votre travail n'est donc pas de trouver la bonne réponse, il est de prendre de bonnes décisions avec ce que
+vous savez, d'écrire ce que vous supposez, et de corriger votre trajectoire quand l'information arrive.
+
+
+Les rôles
+Chaque membre du trinôme porte un rôle. Il ne fait pas tout seul sa partie, mais il en répond seul à l'oral.
+
+
+
+
+                                                     Page 1 sur 3
+ Rôle                                   Ce qu'il porte
+
+ Chef de projet                         Cadrage, registre des hypothèses, organisation, budget, feuille de route
+
+ Architecte                             Schéma d'architecture, fiches de décision, chiffrage
+
+ Responsable données et conformité      Inventaire des données, AIPD, propriété des données, gouvernance
+
+
+
+Ce que vous produisez
+Cinq livrables, notés L1 à L5, et deux outils tenus du premier au dernier jour. Les L, c'est ce que votre
+trinôme produit. Ils évoluent à chaque sortie d'information R, et le journal de bord garde la trace de ce que
+chaque R a changé dans vos L.
+
+ Code Pièce                    À rendre pour
+
+ L1        Note de cadrage     jeudi 5/11, 15h30 (rendu 1), puis version reprise dimanche 29/11, 23h59 (rendu 3)
+
+ L2        Inventaire des      jeudi 5/11, 15h30 (rendu 1), puis version reprise dimanche 29/11, 23h59 (rendu 3)
+           données
+
+ L3        AIPD courte         dimanche 29/11, 23h59 (rendu 3)
+
+ L4        Architecture et     lundi 30/11, 19h (rendu 4)
+           chiffrage
+
+ L5        Organisation et     jeudi 3/12, 12h15 (rendu 5)
+           budget
+
+           Registre des        jeudi 5/11, 15h30 (rendu 1), puis à jour à chaque rendu
+           hypothèses
+
+           Journal de bord     R0 à R2 : jeudi 5/11, 15h30 (rendu 1). R3 : vendredi 6/11, 13h (rendu 2). R4 et R5 :
+                               lundi 30/11, 19h (rendu 4). R6 : jeudi 3/12, 12h15 (rendu 5)
+
+           Dossier final et    vendredi 4/12, 9h30 (rendu 6)
+           support d'oral
+
+Les livrables ne sont pas notés un par un. Ils forment votre dossier final et la matière de l'oral. Chacun doit
+réutiliser les chiffres et les décisions des précédents. Ils doivent permettre de suivre l’évolution de votre
+projet, des hypothèses et leurs évolutions. Cette traçabilité fait partie intégrante de la notation.
+
+
+L'évaluation
+
+ Épreuve                        Date                           Format                                   Poids
+
+ Copie 1                        jeudi 5/11, 9h45               papier, 45 min, individuel               environ 17 %
+
+ Copie 2                        lundi 30/11, 11h30             papier, 45 min, individuel               environ 17 %
+
+ Copie 3                        jeudi 3/12, 12h15              papier, 45 min, individuel               environ 17 %
+
+ Oral en comité de sélection    vendredi 4/12, en visio        par trinôme, questions individuelles     50 %
+
+Les copies se font sans écran ni document. Elles portent sur votre raisonnement, pas sur des définitions
+apprises. Les quantités imposées dans l'énoncé (nombre de questions, de lignes), en gras soulignées,
+comptent : chaque consigne non respectée retire 0,5 point sur la copie, dans la limite de 2 points. Cette
+pénalité est indépendante de celle des rendus.
+
+
+
+                                                      Page 2 sur 3
+L'oral se tient devant le comité qui choisit son prestataire. Il note le groupe (12 points sur 20) et chacun de
+vous (8 points sur 20), en particulier votre capacité à refaire un calcul à voix haute et à expliquer le chemin
+parcouru par votre groupe.
+
+
+Les règles du jeu
+ 1. On ne supprime jamais une hypothèse ni une piste : on la ferme, en écrivant pourquoi.
+ 2. Chaque entrée du journal de bord est déposée le jour où la sortie d'information tombe. On ne réécrit pas
+    l'histoire après coup.
+ 3. Chaque chiffre que vous écrivez a son hypothèse ou sa source écrite à côté.
+ 4. Les outils d'IA ne sont pas interdits pour mettre en forme. Mais tout ce qui est noté se joue sur papier ou
+    à l'oral, sur vos propres chiffres et vos propres décisions. Un dossier que vous ne savez pas défendre ne
+    vaut rien (et donc 0/20).
+ 5. Les dépôts se font sur le devoir Teams, aux dates du calendrier. Tout est corrigé à la fin, mais un rendu
+    manquant ou en retard coûte 0,5 point sur la moyenne finale à chaque membre du trinôme, comme un
+    jalon raté dans un vrai projet.
+ 6. Tout est daté. À la correction, on vérifie qu'aucune entrée de votre journal ni aucune version de vos
+    livrables ne s'appuie sur une information qui n'était pas encore sortie à sa date.
+
+
+
+
+                                                     Page 3 sur 3
+

@@ -1,0 +1,50 @@
+                                                                                 Architecture de projet Big Data
+                                                                    M2 IABD, ESGI Lyon. Code matière 05CW07239
+
+
+
+
+Modèles : registre des hypothèses et journal de bord
+Deux outils à tenir du premier au dernier jour. Copiez ces modèles dans votre espace de groupe, sans changer
+les colonnes.
+
+
+Registre des hypothèses
+Une hypothèse, c'est ce que vous décidez de tenir pour vrai faute de mieux, pour pouvoir avancer. Le registre
+garde la trace de toutes, même celles qui sont tombées. On ne supprime jamais une ligne : on la ferme.
+
+ N°   Hypothèse Pourquoi on la        Ce qui la confirmerait ou       Impact si elle est   Statut    Tranchée
+                prend                 l'infirmerait                   fausse                         par, le
+
+ H1                                                                                        ouverte
+
+ H2                                                                                        ouverte
+
+ H3                                                                                        ouverte
+
+Le statut prend trois valeurs : ouverte, confirmée, tombée. Une hypothèse tombée renvoie à l'entrée du
+journal qui explique ce que vous avez changé. Le registre part à jour avec chacun des six rendus.
+
+
+Journal de bord
+Une entrée par sortie d'information, rédigée dans la séance où elle tombe et déposée le jour même, dans le
+devoir Teams du rendu correspondant. La première entrée, R0, décrit votre point de départ. Une demi-page
+par entrée, pas plus.
+
+
+  Entrée Rx, le jj/mm
+  Ce qui arrive. En une phrase, ce que cette sortie nous apprend.
+  Hypothèses. Confirmées : H… Tombées : H… Nouvelles : H…
+  Pistes ouvertes. Ce qui devient possible ou nécessaire.
+  Pistes fermées. Ce qu'on abandonne, et pourquoi.
+  Décision. Ce qu'on décide maintenant, et qui l'a tranché dans le groupe.
+  Pièces modifiées. L1, L2… et ce qui a changé dedans.
+
+
+Une piste fermée reste écrite, avec sa raison. Le jour de l'oral, c'est elle qui montrera que vous avez réfléchi.
+
+
+
+
+                                                     Page 1 sur 1
+
