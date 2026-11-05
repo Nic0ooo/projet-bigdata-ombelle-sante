@@ -119,7 +119,6 @@ docs/                         énoncés Ombelle/ESGI (PDF) — lecture seule
   sorties/                    copie fidèle et datée de chaque sortie R reçue (R1…R7)
   aide-memoire.md             formules, RGPD, médaillon, ordres de grandeur
 rendus/
-  R0.md                       notes de lecture brutes du dossier R0
   registre-hypotheses.md      registre vivant (une seule version, jamais de ligne supprimée)
   journal/R<n>.md             une entrée par sortie d'information
   L1-cadrage/ … L5-organisation/   une version par fichier : L<k>-v<n>.md
