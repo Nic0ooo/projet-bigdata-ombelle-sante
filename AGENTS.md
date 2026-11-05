@@ -62,7 +62,7 @@ Heures locales (Lyon). Les sorties d'information R tombent pour tous les trinôm
 
 ### État d'avancement
 
-> À mettre à jour à chaque sortie. **Dernière sortie reçue : R1** (5/11/2026, 11h30). Tant qu'une sortie n'est pas arrivée, son contenu est inconnu : ne rien en supposer dans les livrables hors du registre des hypothèses.
+> À mettre à jour à chaque sortie. **Dernière sortie reçue : R2** (5/11/2026, 14h). Tant qu'une sortie n'est pas arrivée, son contenu est inconnu : ne rien en supposer dans les livrables hors du registre des hypothèses.
 
 ## Livrables
 
