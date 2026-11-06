@@ -62,7 +62,7 @@ Heures locales (Lyon). Les sorties d'information R tombent pour tous les trinôm
 
 ### État d'avancement
 
-> À mettre à jour à chaque sortie. **Dernière sortie reçue : R2** (5/11/2026, 14h). Tant qu'une sortie n'est pas arrivée, son contenu est inconnu : ne rien en supposer dans les livrables hors du registre des hypothèses.
+> À mettre à jour à chaque sortie. **Dernière sortie reçue : R3** (6/11/2026, 11h30). Tant qu'une sortie n'est pas arrivée, son contenu est inconnu : ne rien en supposer dans les livrables hors du registre des hypothèses.
 
 ## Livrables
 
@@ -121,6 +121,7 @@ docs/                         énoncés Ombelle/ESGI (PDF) — lecture seule
 rendus/
   registre-hypotheses.md      registre vivant (une seule version, jamais de ligne supprimée)
   journal/R<n>.md             une entrée par sortie d'information
+  R3-reponse-patient.md       réponse en 10 lignes à la demande du patient (rendu 2)
   L1-cadrage/ … L5-organisation/   une version par fichier : L<k>-v<n>.md
   final/                      dossier final + support d'oral
 templates/                    modèles des livrables (colonnes imposées, ne pas modifier)

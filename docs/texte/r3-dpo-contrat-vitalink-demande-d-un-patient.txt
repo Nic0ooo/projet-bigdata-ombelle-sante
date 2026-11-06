@@ -1,0 +1,60 @@
+             R3 : DPO, contrat Vitalink,
+             demande d'un patient
+                  Ce que ça
+                                            Cadre juridique, propriété des données, droit d'accès
+               tranche
+                                            Note de la DPO, article 7 complet du contrat Vitalink, mail d'un
+                    Contenu
+                                            patient qui demande ses données
+                    Mode                      Visio
+                    Partagée
+                    Quand                   November 6, 2026 11:30 AM
+
+             Note de la DPO
+                 Note de Sophie Lemaire, déléguée à la protection des données, au comité de
+                 direction
+                 Je souhaite être associée au projet de données dès maintenant, et je dois
+                 signaler plusieurs points.
+                 Le registre des traitements n'a pas été mis à jour depuis 2023.
+                 Aucune analyse d'impact n'a été réalisée pour Ombelle Domicile. Le traitement
+                 concerne des données de santé, de personnes souvent âgées, collectées en
+                 continu à domicile : il relève à l'évidence d'une AIPD.
+                 L'information et le recueil du consentement des patients télésurveillés se font
+                 aujourd'hui par le formulaire général d'admission, qui ne mentionne ni les
+                 capteurs ni Vitalink.
+                 Le contrat avec Vitalink ne précise pas clairement si Vitalink agit comme sous-
+                 traitant d'Ombelle ou pour son propre compte.
+
+
+
+R3 : DPO, contrat Vitalink, demande d'un patient                                                               1
+                 J'exerce ma fonction à 40 % de mon temps, le reste étant consacré aux affaires
+                 juridiques.
+
+             Article 7 du contrat Vitalink, version complète
+                 7.3 Les données brutes issues des dispositifs, ainsi que les données dérivées
+                 produites par les algorithmes du Prestataire, sont la propriété du Prestataire. Le
+                 Prestataire est autorisé à les réutiliser, sous forme pseudonymisée, pour
+                 l'amélioration de ses produits et le développement de nouveaux services.
+                 7.4 Le Client peut obtenir, sur demande écrite et moyennant facturation, un
+                 export de l'historique des mesures de ses patients, dans un délai de 60 jours.
+                 7.5 À l'échéance du contrat, le Prestataire conserve les données pendant une
+                 durée de 12 mois.
+
+             Mail d'un patient
+                 De : Jean-Paul Ribeiro
+                 À : contact Ombelle Santé
+                 Objet : Mes données
+                 Bonjour,
+                 J'ai été suivi par Ombelle Domicile après mon séjour à Ombelle Bastille l'an
+                 dernier. Je souhaite recevoir une copie de toutes les données que vous détenez
+                 sur moi, y compris les mesures de mon oxymètre et de ma balance, et savoir à
+                 qui elles ont été transmises.
+                 Cordialement,
+                 Jean-Paul Ribeiro
+
+
+
+
+R3 : DPO, contrat Vitalink, demande d'un patient                                                      2
+
